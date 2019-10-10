@@ -1,5 +1,6 @@
-
-
+// this program will generate the sum of dice rolls
+// ~ enjoy
+int total;
 void setup()
 {
 	noLoop();
@@ -16,11 +17,17 @@ void draw()
 			one.show();
 		}	
 	}
+	fill (255);
+   	textSize(18);
+   	text("Press to Redraw :)", 90, 650);
+   	textSize(30);
+   	text("Your total is: "+total, 90, 680);
 
 }
 void mousePressed()
 {
 	redraw();
+	total = 0;
 }
 class Die //models one single dice cube
 {
@@ -40,12 +47,13 @@ class Die //models one single dice cube
 	void roll()
 	{
 		num = (int)(Math.random()*6) +1;
+		total = total + num;
 	}
 	void show()
 	{	
 		int randCol = (int)(Math.random()*2);
 		if (randCol==0){
-			fill(255,180,180);
+			fill(255,190,190);
 		} else {
 			fill(255,140,140);
 		}
